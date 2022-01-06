@@ -49,11 +49,7 @@ resource "google_compute_instance" "master" {
     network_ip = "10.10.10.10"
     access_config {}
   }
-  metadata_startup_script = <<EOF
-  echo "10.100.0.13   master.k8s.net" > /etc/hosts
-  echo "10.100.0.12   worker1.k8s.net" > /etc/hosts
-  EOF
- }
+}
 
  resource "google_compute_instance" "worker1" {
    name         =   "worker1"
@@ -72,8 +68,4 @@ resource "google_compute_instance" "master" {
      network_ip = "10.10.10.20"
      access_config {}
    }
-   metadata_startup_script = <<EOF
-   echo "10.100.0.13   master.k8s.net" > /etc/hosts
-   echo "10.100.0.12   worker1.k8s.net" > /etc/hosts
-   EOF
   }
