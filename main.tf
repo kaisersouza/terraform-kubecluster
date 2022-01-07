@@ -34,12 +34,13 @@ resource "google_compute_firewall" "kube-fw" {
 
 resource "google_compute_instance" "master" {
   name         =   "master"
-  machine_type = "n1-standard-1"
+  machine_type = "n2-standard-2"
   zone         = "europe-west3-a"
   boot_disk {
     initialize_params {
       type  = "pd-ssd"
-      image = "debian-cloud/debian-10"
+      image = "debian-cloud/debian-11"
+      size = "35"
     }
   }
   depends_on = [google_compute_subnetwork.rsubnet1]
@@ -53,12 +54,13 @@ resource "google_compute_instance" "master" {
 
  resource "google_compute_instance" "worker1" {
    name         =   "worker1"
-   machine_type = "n1-standard-1"
+   machine_type = "n2-standard-2"
    zone         = "europe-west3-b"
    boot_disk {
      initialize_params {
        type  = "pd-ssd"
-       image = "debian-cloud/debian-10"
+       image = "debian-cloud/debian-11"
+       size = "35"
      }
    }
    depends_on = [google_compute_subnetwork.rsubnet1]
