@@ -39,7 +39,7 @@ resource "google_compute_instance" "master" {
   boot_disk {
     initialize_params {
       type  = "pd-ssd"
-      image = "debian-cloud/debian-11"
+      image = "debian-cloud/debian-10"
       size = "35"
     }
   }
@@ -59,7 +59,7 @@ resource "google_compute_instance" "master" {
    boot_disk {
      initialize_params {
        type  = "pd-ssd"
-       image = "debian-cloud/debian-11"
+       image = "debian-cloud/debian-10"
        size = "35"
      }
    }
